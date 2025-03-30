@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bong Gia Tek - ePortfolio</title>
+    <link id="theme-style" rel="stylesheet" href="css/theme1.css">
+    <style>
+        /* Theme Switcher Placement */
+        .theme-switcher {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .theme-toggle {
+            background: linear-gradient(135deg, #ff9a9e 10%, #fad0c4 100%);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .theme-toggle:hover {
+            background: linear-gradient(135deg, #fad0c4 10%, #ff9a9e 100%);
+        }
+        /* Responsive Image Control */
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .gallery img, .cert-card img {
+            width: 300px;
+            height: 200px;
+        }
+        /* Profile Picture */
+        .profile-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .about-me {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin-bottom: 40px;
+        }
+        .about-me h2 {
+            margin-bottom: 10px;
+        }
+        .about-me p {
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Switcher Moved to Top Right -->
+    <div class="theme-switcher">
+        <button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
+    </div>
+
+    <header class="header">
+        <h1>Bong Gia Tek - Full-Stack Developer</h1>
+        <p>Passionate about coding, data analysis, and IoT applications. Continuously growing as a developer.</p>
+        <nav class="nav-main">
+            <ul>
+                <li><a id="index-link" href="index.html">About Me</a></li>
+                <li><a id="project-link" href="project.html?theme=theme1">Projects & Experience</a></li>
+                <li><a id="certifications-link" href="certifications.html?theme=theme1">Certifications & Skills</a></li>
+                <li><a id="contact-link" href="contact.html?theme=theme1">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+
+
+        <section id="work" class="portfolio-section">
+            <h2>Projects</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="image/project1.jpg" alt="Inventory Management System">
+                    <figcaption>Inventory Management System (Laravel, PHP, MySQL) - Developed a system to streamline inventory control for small businesses.</figcaption>
+                </figure>
+                <figure>
+                    <img src="image/project2.png" alt="IoT Dashboard">
+                    <figcaption>IoT Dashboard for Smart Manufacturing - Created a dashboard to monitor and control factory equipment remotely using IoT technology.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="experience" class="portfolio-section">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="job">
+                    <h3>Sarawak Information Systems</h3>
+                    <p>Software Engineer (2020 - Present)</p>
+                    <ul>
+                        <li>Developed and maintained web applications using Java and PHP, integrating with MySQL databases.</li>
+                        <li>Created IoT solutions for real-time data monitoring, improving manufacturing efficiency.</li>
+                        <li>Collaborated with cross-functional teams to design and deploy scalable software solutions.</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3>LONGi Malaysia - Sarawak</h3>
+                    <p>Senior Technician (2018 - 2020)</p>
+                    <ul>
+                        <li>Developed automated systems for monitoring solar panel production quality.</li>
+                        <li>Led the integration of data analytics tools to optimize production processes.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>Contact: <a href="mailto:bonggiatek@gmail.com">bonggiatek@gmail.com</a></p>
+        <nav class="social-links">
+            <a href="https://www.linkedin.com/in/bong-g-266446216">LinkedIn</a>
+        </nav>
+    </footer>
+
+    <script>
+        // Function to toggle the theme
+        function toggleTheme() {
+            const currentUrl = window.location.href;
+            const newUrl = new URL(currentUrl);
+            const currentTheme = newUrl.searchParams.get('theme');
+
+            // Toggle between themes and set the URL parameter
+            if (currentTheme === 'theme2') {
+                newUrl.searchParams.set('theme', 'theme1');
+                document.querySelector('#theme-style').href = 'css/theme1.css';
+            } else {
+                newUrl.searchParams.set('theme', 'theme2');
+                document.querySelector('#theme-style').href = 'css/theme2.css';
+            }
+
+            // Update the URL without reloading the page
+            window.history.pushState({}, '', newUrl);
+            updateContactLink();
+        }
+
+        // Function to update the contact link with the current theme
+        function updateContactLink() {
+            const theme = new URLSearchParams(window.location.search).get('theme') || 'theme1';
+            const contactLink = document.getElementById('contact-link');
+            contactLink.href = `contact.html?theme=${theme}`; // Update the link with the current theme
+			const projectLink = document.getElementById('project-link');
+			projectLink.href = `project.html?theme=${theme}`; // Update the link with the current theme
+			const certificationsLink = document.getElementById('certifications-link');
+			certificationsLink.href = `certifications.html?theme=${theme}`; // Update the link with the current theme
+			const index = document.getElementById('index-link');
+			index.href = `index.html?theme=${theme}`; // Update the link with the current theme
+        }
+
+        // Check the URL on page load and apply the theme
+        window.onload = function() {
+            const currentUrl = window.location.href;
+            const newUrl = new URL(currentUrl);
+            let theme = newUrl.searchParams.get('theme');
+
+            // Set default theme to 'theme1' if no theme is specified
+            if (!theme) {
+                theme = 'theme1';
+                newUrl.searchParams.set('theme', theme);  // Ensure the theme is in the URL
+                window.history.pushState({}, '', newUrl);  // Update the URL with default theme
+            }
+
+            if (theme === 'theme2') {
+                document.querySelector('#theme-style').href = 'css/theme2.css';
+            } else {
+                document.querySelector('#theme-style').href = 'css/theme1.css';
+            }
+            updateContactLink();
+        };
+    </script>
+</body>
+</html>
