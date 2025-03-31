@@ -6,7 +6,12 @@
     --text-color: #333;
     --accent-color: #3498db;
 }
-
+figure {
+    transition: transform 0.3s;
+}
+figure:hover {
+    transform: scale(1.05);
+}
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--background-color);
