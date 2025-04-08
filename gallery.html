@@ -188,7 +188,7 @@
                 newUrl.searchParams.set('theme', 'theme2');
                 document.querySelector('#theme-style').href = 'css/theme2.css';
             }
-		updateContactLink()
+		updateContactLink();
             // Update the URL without reloading the page
             window.history.pushState({}, '', newUrl);
         }
