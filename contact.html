@@ -63,6 +63,7 @@
                 <li><a id="project-link" href="project.html?theme=theme1">Projects & Experience</a></li>
                 <li><a id="certifications-link" href="certifications.html?theme=theme1">Certifications & Skills</a></li>
                 <li><a id="contact-link" href="contact.html?theme=theme1">Contact</a></li>
+		<li><a id="gallery-link" href="gallery.html?theme=theme1">Gallery</a></li>
             </ul>
         </nav>
     </header>
@@ -119,7 +120,8 @@
 		
 		const certificationsLink = document.getElementById('certifications-link');
 		certificationsLink.href = `certifications.html?theme=${theme}`; // Update the link with the current theme
-
+		const galleryLink = document.getElementById('gallery-link');
+		galleryLink.href = `gallery.html?theme=${theme}`; // Update the link with the current theme
         // Update the "Contact" link dynamically
         const contactLink = document.querySelector('a[href="contact.html"]');  // Get the "Contact" link
 		const contactLink2 = document.getElementById('contact-link');
