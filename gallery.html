@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bong Gia Tek - Photo Gallery</title>
+    <title>Bong Gia Tek - Multimedia Gallery</title>
     <link id="theme-style" rel="stylesheet" href="css/theme1.css">
     <style>
         /* Gallery Container */
@@ -37,6 +37,50 @@
             margin-top: 10px;
         }
 
+        /* Section Styling */
+        section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        /* Video Section */
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        iframe {
+            border: 0;
+            border-radius: 10px;
+        }
+
+        /* Audio Section */
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Game Section */
+        .game-section {
+            text-align: center;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .game-section iframe {
+            border-radius: 10px;
+        }
+
+        /* Animation Section */
+        .animation-section {
+            text-align: center;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
         /* Theme Switcher Styles */
         .theme-switcher {
             position: absolute;
@@ -65,8 +109,8 @@
     </div>
 
     <header class="header">
-        <h1>Bong Gia Tek - Full-Stack Developer</h1>
-        <p>Passionate about coding, data analysis, and IoT applications. Continuously growing as a developer.</p>
+        <h1>Bong Gia Tek - Multimedia Gallery</h1>
+        <p>Explore various media elements showcasing my work.</p>
         <nav class="nav-main">
             <ul>
                 <li><a id="index-link" href="index.html">About Me</a></li>
@@ -78,8 +122,42 @@
         </nav>
     </header>
 
-
     <main class="content">
+        <!-- Video Section -->
+        <section id="video-section" class="portfolio-section">
+            <h2>Video Showcase</h2>
+            <div class="video-wrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/xo47WHrU42E" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p>Here is a demo video of one of my IoT smart home projects, showcasing live data monitoring.</p>
+        </section>
+
+        <!-- Audio Section -->
+        <section id="audio-section" class="portfolio-section">
+            <h2>Audio Narration</h2>
+            <audio controls>
+                <source src="audio/narration.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p>This is an audio narration explaining the setup process for one of my IoT projects.</p>
+        </section>
+
+        <!-- Game Section -->
+        <section id="game-section" class="portfolio-section game-section">
+            <h2>Interactive Game Demo</h2>
+            <p>Play the interactive game below to test your skills!</p>
+            <iframe src="https://example-game-embed.com" width="600" height="400"></iframe>
+            <p>This game is part of a learning module I developed to teach IoT concepts interactively.</p>
+        </section>
+
+        <!-- Animation Section -->
+        <section id="animation-section" class="portfolio-section animation-section">
+            <h2>Animation Showcase</h2>
+            <iframe src="https://example-animation-url.com" width="600" height="400"></iframe>
+            <p>This animation demonstrates a concept of data flow within an IoT network, designed to visualize the system's operation.</p>
+        </section>
+
+        <!-- Image Gallery -->
         <section id="gallery" class="portfolio-section">
             <h2>Project Showcase</h2>
             <div class="gallery">
