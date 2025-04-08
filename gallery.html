@@ -188,9 +188,10 @@
                 newUrl.searchParams.set('theme', 'theme2');
                 document.querySelector('#theme-style').href = 'css/theme2.css';
             }
-		updateContactLink();
+	
             // Update the URL without reloading the page
             window.history.pushState({}, '', newUrl);
+	updateContactLink();
         }
         function updateContactLink() {
             const theme = new URLSearchParams(window.location.search).get('theme') || 'theme1';
