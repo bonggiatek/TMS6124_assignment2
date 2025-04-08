@@ -204,11 +204,23 @@
                 newUrl.searchParams.set('theme', 'theme2');
                 document.querySelector('#theme-style').href = 'css/theme2.css';
             }
-
+		updateContactLink()
             // Update the URL without reloading the page
             window.history.pushState({}, '', newUrl);
         }
-
+        function updateContactLink() {
+            const theme = new URLSearchParams(window.location.search).get('theme') || 'theme1';
+            const contactLink = document.getElementById('contact-link');
+            contactLink.href = `contact.html?theme=${theme}`; // Update the link with the current theme
+			const projectLink = document.getElementById('project-link');
+			projectLink.href = `project.html?theme=${theme}`; // Update the link with the current theme
+			const certificationsLink = document.getElementById('certifications-link');
+			certificationsLink.href = `certifications.html?theme=${theme}`; // Update the link with the current theme
+			const index = document.getElementById('index-link');
+			index.href = `index.html?theme=${theme}`; // Update the link with the current theme
+			const galleryLink = document.getElementById('gallery-link');
+			galleryLink.href = `gallery.html?theme=${theme}`; // Update the link with the current theme
+        }
         // Check the URL on page load and apply the theme
         window.onload = function() {
             const currentUrl = window.location.href;
