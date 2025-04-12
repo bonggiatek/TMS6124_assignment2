@@ -100,6 +100,61 @@
         .theme-toggle:hover {
             background: linear-gradient(135deg, #fad0c4 10%, #ff9a9e 100%);
         }
+
+        /* New Cycling Team Section Styles */
+        .cycling-team {
+            background: #f0f8ff;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .cycling-team h2 {
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .team-member {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .team-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .jersey-design {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .jersey-design img {
+            max-width: 300px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: white;
+        }
+        .role-highlights {
+            background: #e6f2ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .role-highlights ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .role-highlights li {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -117,12 +172,49 @@
                 <li><a id="project-link" href="project.html?theme=theme1">Projects & Experience</a></li>
                 <li><a id="certifications-link" href="certifications.html?theme=theme1">Certifications & Skills</a></li>
                 <li><a id="contact-link" href="contact.html?theme=theme1">Contact</a></li>
-		<li><a id="gallery-link" href="gallery.html?theme=theme1">More info</a></li>
+                <li><a id="gallery-link" href="gallery.html?theme=theme1">More info</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="content">
+        <!-- New Cycling Team Section -->
+        <section id="cycling-team" class="cycling-team">
+            <h2>De Bro's Clan Cycling Team</h2>
+            
+            <div class="jersey-design">
+                <h3>Team Jersey Design</h3>
+                <img src="image/cycling-jersey.jpg" alt="De Bro's Clan Cycling Jersey Design">
+                <p>The official cycling jersey I designed for our team</p>
+            </div>
+            
+            <div class="role-highlights">
+                <h3>My Role in the Team</h3>
+                <ul>
+                    <li>Designed and led end-to-end management of team jersey production process</li>
+                    <li>Collaborated with team members and suppliers on cycling jersey development</li>
+                    <li>Managed size collection and ordering coordination</li>
+                    <li>Implemented feedback systems for continuous product improvement</li>
+                </ul>
+            </div>
+            
+            <h3>Team Gallery</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="image/cycling-team1.jpg" alt="Team Ride 1">
+                    <p>Group ride at Putrajaya Challenge Park</p>
+                </div>
+                <div class="team-member">
+                    <img src="image/cycling-team2.jpg" alt="Team Ride 2">
+                    <p>Weekend training session with the team</p>
+                </div>
+                <div class="team-member">
+                    <img src="image/cycling-team3.jpg" alt="Team Event">
+                    <p>Participating in a local cycling event</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Video Section -->
         <section id="video-section" class="portfolio-section">
             <h2>Video Showcase</h2>
@@ -141,13 +233,13 @@
             </audio>
             <p>This is an audio narration explaining about me.</p>
         </section>
+
         <!-- Game Section -->
         <section id="game-section" class="portfolio-section game-section">
             <h2>Game Developed</h2>
             <p>This mini-game is specifically designed for MITM TMW 6044 Computational Thinking exercises and is modified from Scratch Project #509071611 (https://scratch.mit.edu/projects/509071611).</p>
-         	<iframe width="560" height="315" src="https://scratch.mit.edu/projects/1110098850/embed" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+            <iframe width="560" height="315" src="https://scratch.mit.edu/projects/1110098850/embed" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
         </section>
-
 
         <!-- Image Gallery -->
         <section id="gallery" class="portfolio-section">
@@ -162,7 +254,6 @@
                     <img src="image/project2.png" alt="Project 2">
                     <figcaption>Project 2: IoT Dashboard for Smart Manufacturing - Created a dashboard to monitor and control factory equipment remotely using IoT technology.</figcaption>
                 </figure>
-
             </div>
         </section>
     </main>
@@ -186,24 +277,26 @@
                 newUrl.searchParams.set('theme', 'theme2');
                 document.querySelector('#theme-style').href = 'css/theme2.css';
             }
-	
+    
             // Update the URL without reloading the page
             window.history.pushState({}, '', newUrl);
-	updateContactLink();
+            updateContactLink();
         }
+        
         function updateContactLink() {
             const theme = new URLSearchParams(window.location.search).get('theme') || 'theme1';
             const contactLink = document.getElementById('contact-link');
-            contactLink.href = `contact.html?theme=${theme}`; // Update the link with the current theme
-			const projectLink = document.getElementById('project-link');
-			projectLink.href = `project.html?theme=${theme}`; // Update the link with the current theme
-			const certificationsLink = document.getElementById('certifications-link');
-			certificationsLink.href = `certifications.html?theme=${theme}`; // Update the link with the current theme
-			const index = document.getElementById('index-link');
-			index.href = `index.html?theme=${theme}`; // Update the link with the current theme
-			const galleryLink = document.getElementById('gallery-link');
-			galleryLink.href = `gallery.html?theme=${theme}`; // Update the link with the current theme
+            contactLink.href = `contact.html?theme=${theme}`;
+            const projectLink = document.getElementById('project-link');
+            projectLink.href = `project.html?theme=${theme}`;
+            const certificationsLink = document.getElementById('certifications-link');
+            certificationsLink.href = `certifications.html?theme=${theme}`;
+            const index = document.getElementById('index-link');
+            index.href = `index.html?theme=${theme}`;
+            const galleryLink = document.getElementById('gallery-link');
+            galleryLink.href = `gallery.html?theme=${theme}`;
         }
+        
         // Check the URL on page load and apply the theme
         window.onload = function() {
             const currentUrl = window.location.href;
@@ -213,8 +306,8 @@
             // Set default theme to 'theme1' if no theme is specified
             if (!theme) {
                 theme = 'theme1';
-                newUrl.searchParams.set('theme', theme);  // Ensure the theme is in the URL
-                window.history.pushState({}, '', newUrl);  // Update the URL with default theme
+                newUrl.searchParams.set('theme', theme);
+                window.history.pushState({}, '', newUrl);
             }
 
             if (theme === 'theme2') {
